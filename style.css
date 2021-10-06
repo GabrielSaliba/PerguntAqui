@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  padding: 1rem;
+  margin-top: 3rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  opacity: 0.6;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+textarea {
+  width: 100%;
+  height: 80%;
+  outline: none;
+}
+
+.banner {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 10rem;
+  position: fixed;
+  left: 0;
+
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.header-title {
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.header-username {
+  font-size: 1.1rem;
+  margin-right: 1rem;
+  justify-content: end;
+}
+
+.telaPerguntas {
+  position: absolute;
+  visibility: visible;
+  max-width: 30rem;
+}
+
+.telaCategoria {
+  margin-left: 5vw;
+  position: absolute;
+  visibility: hidden;
+}
+
+.category-title {
+  text-align: center;
+}
+
+.category-image {
+  height: 9rem;
+}
+
+.telaCategoria img {
+  height: 100%;
+  width: 100%;
+  border-radius: 1.3rem 1.3rem 0 0;
+}
+
+.category-text {
+  padding: 1rem;
+}
+
+.category-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  gap: 1rem;
+}
+
+.category {
+  border: thin solid black;
+  border-radius: 1.5rem;
+  text-align: center;
+  width: 78vw;
+  max-width: 40rem;
+  cursor: pointer;
+}
+
+.questions-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.questions-title {
+  margin-top: 11rem;
+  color: #007aff;
+  opacity: 1;
+  text-align: center;
+  margin-left: -1.5rem;
+}
+
+.questions-subtitle {
+  margin-top: 1rem;
+  text-align: center;
+  margin-left: -1.5rem;
+}
+
+.card {
+  border-radius: 2.3rem 2.3rem 2.3rem 2.3rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 96%;
+}
+
+.card-header {
+  padding: 2rem 2rem 0rem 2rem;
+  flex-direction: column;
+  display: flex;
+  text-align: justify;
+  border-radius: 30px 30px 0 0;
+  background-color: #6bb0ff6e;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.9rem;
+  justify-content: end;
+  opacity: 0.7;
+  font-size: 0.8rem;
+}
+
+.divider {
+  border-bottom: thin solid black;
+  opacity: 0.1;
+  margin-top: 1.5rem;
+}
+
+.card-header .info {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.9rem;
+  justify-content: space-between;
+  opacity: 0.7;
+  font-size: 0.8rem;
+}
+
+.card-content {
+  padding: 2rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-write-answer {
+  min-height: 7rem;
+}
+
+.card-answers {
+  text-align: justify;
+  margin-bottom: 1.5rem;
+}
+
+.card-answers div {
+  margin-top: 1rem;
+}
+
+.card-icons {
+  justify-content: end;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.card-icons img {
+  height: 2rem;
+}
+
+.date {
+  border: thin solid black;
+  border-width: 2px;
+  padding: 0.3rem;
+  margin-left: -2rem;
+  margin-top: 2rem;
+}
+
+.mt1 {
+  margin-top: 1rem;
+}
+
+.mt2 {
+  margin-top: 2rem;
+}
+
+.mt3 {
+  margin-top: 3rem;
+}
+
+.ml1 {
+  margin-left: 1rem;
+}
+
+.ml2 {
+  margin-left: 2rem;
+}
+
+.ml3 {
+  margin-left: 3rem;
+}
+
+.mr3 {
+  margin-right: 3rem;
+}
+
+.primary {
+  background-color: #007aff;
+  color: #fff;
+  border-width: 1rem;
+  border-color: black;
+}
+
+.secondary {
+  background-color: #6bb1ff;
+  color: #000;
+  border-width: 0.125rem;
+  border-color: black;
+}
+
+.secondary:active {
+  background-color: #4aa0dd;
+  color: #000;
+  border-width: 0.125rem;
+  border-color: black;
+}
