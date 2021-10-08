@@ -42,6 +42,7 @@ textarea {
   height: 10rem;
   position: fixed;
   left: 0;
+  z-index: 1000;
 
   mask-image: linear-gradient(
     to bottom,
