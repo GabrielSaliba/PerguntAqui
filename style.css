@@ -25,13 +25,17 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  z-index: 100;
+  z-index: 10000;
 }
 
 textarea {
   width: 100%;
   min-height: 6rem;
   outline: none;
+}
+
+.hidden {
+  display: none;
 }
 
 .banner {
@@ -42,13 +46,7 @@ textarea {
   height: 10rem;
   position: fixed;
   left: 0;
-  z-index: 1000;
-
-  mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  z-index: 100;
 }
 
 .header-title {
@@ -64,14 +62,12 @@ textarea {
 
 .telaPerguntas {
   position: absolute;
-  visibility: visible;
   max-width: 30rem;
 }
 
 .telaCategoria {
   margin-left: 5vw;
   position: absolute;
-  visibility: hidden;
 }
 
 .category-title {
@@ -192,10 +188,33 @@ textarea {
   justify-content: end;
   display: flex;
   gap: 0.5rem;
+  cursor: pointer;
 }
 
 .card-icons img {
   height: 2rem;
+}
+
+.back-button {
+  height: 2rem;
+  margin-top: 2rem;
+  position: fixed;
+  z-index: 100000;
+  background-color: #0000008e;
+
+  border: thin solid #007aff;
+  border-radius: 0.7rem;
+  padding: 0.4rem;
+
+  cursor: pointer;
+}
+
+.back-button:active {
+  opacity: 0.7;
+}
+
+.card-icons img:active {
+  opacity: 0.7;
 }
 
 .date {

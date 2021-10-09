@@ -58,52 +58,52 @@
       <span class="header-title">PerguntAqui</span>
       <span class="header-username">Gabriel</span>
     </header>
-    <div class="telaCategoria">
+    <div id="telaCategorias" class="telaCategoria">
       <h1 class="category-title mt3">Selecione uma categoria</h1>
       <div class="category-group mt3">
-        <div class="category secondary">
+        <div id="front-cat" class="category secondary">
           <div class="category-image">
             <img src="./assets/front-end.png" alt="FrontEnd" />
           </div>
           <div class="category-text">Front-end</div>
         </div>
-        <div class="category secondary">
+        <div id="back-cat" class="category secondary">
           <div class="category-image">
             <img src="./assets/backend.jpg" alt="BackEnd" />
           </div>
           <div class="category-text">Back-end</div>
         </div>
-        <div class="category secondary">
+        <div id="mobile-cat" class="category secondary">
           <div class="category-image">
             <img src="./assets/mobile.jpg" alt="Mobile" />
           </div>
           <div class="category-text">Mobile</div>
         </div>
-        <div class="category secondary">
+        <div id="react-cat" class="category secondary">
           <div class="category-image">
             <img src="./assets/React.jpg" alt="ReactJS" />
           </div>
           <div class="category-text">React</div>
         </div>
-        <div class="category secondary">
+        <div id="native-cat" class="category secondary">
           <div class="category-image">
             <img src="./assets/react-native.png" alt="React Native" />
           </div>
           <div class="category-text">React Native</div>
         </div>
-        <div class="category secondary">
+        <div id="node-cat" class="category secondary">
           <div class="category-image">
             <img src="./assets/node.jpg" alt="NodeJS" />
           </div>
           <div class="category-text">Node.js</div>
         </div>
-        <div class="category secondary">
+        <div id="ruby-cat" class="category secondary">
           <div class="category-image">
             <img src="./assets/ruby.jpg" alt="Ruby" />
           </div>
           <div class="category-text">Ruby</div>
         </div>
-        <div class="category secondary">
+        <div id="python-cat" class="category secondary">
           <div class="category-image">
             <img src="./assets/python.jpg" alt="Python" />
           </div>
@@ -111,13 +111,19 @@
         </div>
       </div>
     </div>
-    <div class="telaPerguntas">
+    <div id="telaPerguntas" class="telaPerguntas hidden">
       <div>
-        <img class="banner" src="./assets/python.jpg" alt="Python" />
+        <img id="banner" class="banner" src="" alt="" />
       </div>
+      <img
+        id="cat-back-button"
+        class="back-button"
+        src="./assets//left-arrow.png"
+        alt="Voltar"
+      />
       <div class="qustions-group">
         <h1 class="questions-title">Perguntas & Respostas</h1>
-        <h1 class="questions-subtitle">Python</h1>
+        <h1 id="questions-subtitle" class="questions-subtitle"></h1>
 
         <div class="card mt3">
           <div class="card-header">
