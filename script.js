@@ -9,6 +9,7 @@ let questionsList = [
     author: "Gabriel",
     category: "Python",
     date: "11/10/2021",
+    answers: []
   },
   {
     id: "7",
@@ -16,6 +17,7 @@ let questionsList = [
     author: "Gabriel",
     category: "Python",
     date: "11/10/2021",
+    answers: []
   },
   {
     id: "2",
@@ -46,10 +48,7 @@ onload = () => {
   const telaCategorias = document.querySelector('#telaCategorias');
   const questionsTitle = document.querySelector('#questions-subtitle');
   const questionsBanner = document.querySelector('#banner');
-  const questionElement = document.querySelector("#question");
-  const questionAuthor = document.querySelector("#questionAuthor");
-  const questionDate = document.querySelector("#questionDate");
-  // const questionContainer = document.querySelector("#questionContainer")
+  const questions = document.querySelector("#questionContainer")
 
   generateCategories();
 
@@ -91,6 +90,7 @@ onload = () => {
       document.querySelector(`#${category.id}`).onclick = () => {
         navigateToQuestions();
         loadQuestions(category);
+        questionsClick(category);
         questionsBanner.src = `./assets/${category.src}`;
         questionsBanner.alt = `${category.title}`;
         questionsTitle.innerHTML = `${category.title}`
@@ -98,23 +98,68 @@ onload = () => {
     })
   }
 
-  function loadQuestions(category) {
-    // let innerHTML = '';
+  function questionsClick(category) {
     questionsList.forEach(question => {
       if (question.category === category.title) {
-        questionAuthor.innerHTML = question.author
-        questionElement.innerHTML = question.question
-        questionDate.innerHTML = question.date
-        // innerHTML += `<div class="card-header">
-        //              <p>${question.question}</p>
-        //              <div class="info">
-        //              <p class="date">${question.date}</p>
-        //              <p>${question.author}</p>
-        //              </div>
-        //              </div>`;
+        document.querySelector(`#add${question.id}`).onclick = () => {
+          let text = document.querySelector(`#text${question.id}`).value;
+          let answer = {
+            answer: text,
+            author: "Gabriel"
+          };
+          question.answers.push(answer);
+          loadQuestions(category);
+          questionsClick(category);
+        }
+
+      document.querySelector(`#remove${question.id}`).onclick = () => {
+          document.querySelector(`#text${question.id}`).value = "";
+        }
       }
     })
-    // questionContainer.innerHTML = innerHTML;d
+  }
+
+  function loadQuestions(category) {
+    let innerHTML = '';
+    questionsList.forEach(question => {
+      if (question.category === category.title) {
+        innerHTML += `
+                      <div  class="card mt3">
+                      <div class="card-header">
+                      <p>${question.question}</p>
+                      <div class="info">
+                      <p class="date">${question.date}</p>
+                      <p>${question.author}</p>
+                      </div>
+                      </div>`;
+        innerHTML += `<div class="card-content">`
+        if (question.answers.length > 0) {
+          question.answers.forEach(answer => {
+            innerHTML += `       
+                        <div class="card-answers">
+                        <div>
+                        <p>${answer.answer}</p>
+                        <div class="info">
+                        <p>${answer.author}</p>
+                        </div>
+                        <div class="divider"></div>
+                        </div>
+                        </div>`;
+          })
+        }
+        innerHTML += `
+                      <div class="card-write-answer">
+                      <textarea id="text${question.id}" placeholder="Escreva sua resposta..."></textarea>
+                      </div>
+                      <div class="card-icons">
+                      <img id="add${question.id}" src="./assets/checked.png" alt="Resolvido" />
+                      <img id="remove${question.id}" src="./assets/remove.png" alt="Remover" />
+                      </div>
+                      </div>
+                      </div>`;
+      }
+    })
+    questions.innerHTML = innerHTML;
   }
 
   function fillCategoriesList() {
