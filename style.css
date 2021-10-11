@@ -94,6 +94,7 @@ textarea {
   justify-content: center;
   flex: 1;
   gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .category {

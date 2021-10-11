@@ -1,69 +1,19 @@
 navigator.serviceWorker.register('./app-sw.js');
 
+let categoriesList;
+let currentCategory;
+
 onload = () => {
+  const categories = document.querySelector("#category-group")
   const telaPerguntas = document.querySelector('#telaPerguntas');
   const telaCategorias = document.querySelector('#telaCategorias');
-  const questionsSubtitle = document.querySelector('#questions-subtitle');
-  const banner = document.querySelector('#banner');
+  const questionsTitle = document.querySelector('#questions-subtitle');
+  const questionsBanner = document.querySelector('#banner');
+
+  generateCategories();
 
   document.querySelector('#cat-back-button').onclick = () => {
     navigateToCategory();
-  }
-
-  document.querySelector('#back-cat').onclick = () => {
-    navigateToQuestions();
-    banner.src = "./assets/backend.jpg";
-    banner.alt = "Backend";
-    questionsSubtitle.innerHTML = 'Back-end'
-  }
-
-  document.querySelector('#mobile-cat').onclick = () => {
-    navigateToQuestions();
-    banner.src = "./assets/mobile.jpg";
-    banner.alt = "Mobile";
-    questionsSubtitle.innerHTML = 'Mobile'
-  }
-
-  document.querySelector('#react-cat').onclick = () => {
-    navigateToQuestions();
-    banner.src = "./assets/React.jpg";
-    banner.alt = "React";
-    questionsSubtitle.innerHTML = 'React'
-  }
-
-  document.querySelector('#native-cat').onclick = () => {
-    navigateToQuestions();
-    banner.src = "./assets/react-native.png";
-    banner.alt = "React Native";
-    questionsSubtitle.innerHTML = 'React Native'
-  }
-
-  document.querySelector('#node-cat').onclick = () => {
-    navigateToQuestions();
-    banner.src = "./assets/node.jpg";
-    banner.alt = "Node";
-    questionsSubtitle.innerHTML = 'Node'
-  }
-
-  document.querySelector('#ruby-cat').onclick = () => {
-    navigateToQuestions();
-    banner.src = "./assets/ruby.jpg";
-    banner.alt = "Ruby";
-    questionsSubtitle.innerHTML = 'Ruby'
-  }
-
-  document.querySelector('#front-cat').onclick = () => {
-    navigateToQuestions();
-    banner.src = "./assets/front-end.png";
-    banner.alt = "Frontend";
-    questionsSubtitle.innerHTML = 'Front-end'
-  }
-
-  document.querySelector('#python-cat').onclick = () => {
-    navigateToQuestions();
-    banner.src = "./assets/python.jpg";
-    banner.alt = "Python";
-    questionsSubtitle.innerHTML = 'Python'
   }
 
   function navigateToQuestions() {
@@ -76,5 +26,78 @@ onload = () => {
     window.scrollTo(0, 0);
     telaPerguntas.classList.add('hidden');
     telaCategorias.classList.remove('hidden');
+  }
+
+  function generateCategories() {
+    fillCategoriesList();
+
+    let innerHTML = '';
+    categoriesList.forEach(category => {
+      innerHTML +=
+        `<div id='${category.id}' class='category secondary'>` +
+        `<div class='category-image'>` +
+        `<img src='./assets/${category.src}' alt='${category.title}' />` +
+        `</div>` +
+        `<div class='category-text'>${category.title}</div>` +
+        `</div>`
+    });
+    categories.innerHTML = innerHTML;
+    categoriesClick();
+  }
+
+  function categoriesClick() {
+    categoriesList.forEach(category => {
+      document.querySelector(`#${category.id}`).onclick = () => {
+        navigateToQuestions();
+        questionsBanner.src = `./assets/${category.src}`;
+        questionsBanner.alt = `${category.title}`;
+        questionsTitle.innerHTML = `${category.title}`
+      }
+    })
+  }
+
+  function fillCategoriesList() {
+    categoriesList = [
+      {
+        id: "back-cat",
+        src: "backend.jpg",
+        title: "Back-end"
+      },
+      {
+        id: "front-cat",
+        src: "front-end.png",
+        title: "Front-end"
+      },
+      {
+        id: "mobile-cat",
+        src: "mobile.jpg",
+        title: "Mobile"
+      },
+      {
+        id: "react-cat",
+        src: "React.jpg",
+        title: "React"
+      },
+      {
+        id: "native-cat",
+        src: "react-native.png",
+        title: "React Native"
+      },
+      {
+        id: "node-cat",
+        src: "node.jpg",
+        title: "Node"
+      },
+      {
+        id: "ruby-cat",
+        src: "ruby.jpg",
+        title: "Ruby"
+      },
+      {
+        id: "python-cat",
+        src: "python.jpg",
+        title: "Python"
+      }
+    ];
   }
 }
