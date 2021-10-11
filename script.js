@@ -2,6 +2,43 @@ navigator.serviceWorker.register('./app-sw.js');
 
 let categoriesList;
 let currentCategory;
+let questionsList = [
+  {
+    id: "1",
+    question: "O que é Python?",
+    author: "Gabriel",
+    category: "Python",
+    date: "11/10/2021",
+  },
+  {
+    id: "7",
+    question: "Quero aprender Pandas",
+    author: "Gabriel",
+    category: "Python",
+    date: "11/10/2021",
+  },
+  {
+    id: "2",
+    question: "Como programar em Ruby?",
+    author: "Kethellen",
+    category: "Ruby",
+    date: "05/10/2021"
+  },
+  {
+    id: "3",
+    question: "Dicas para iniciantes em React Native...",
+    author: "Diego",
+    category: "React Native",
+    date: "12/09/2021"
+  },
+  {
+    id: "4",
+    question: "Como fazer uma boa responsividade para web e mobile?",
+    author: "Luís",
+    category: "Mobile",
+    date: "11/10/2021"
+  }
+];
 
 onload = () => {
   const categories = document.querySelector("#category-group")
@@ -9,6 +46,10 @@ onload = () => {
   const telaCategorias = document.querySelector('#telaCategorias');
   const questionsTitle = document.querySelector('#questions-subtitle');
   const questionsBanner = document.querySelector('#banner');
+  const questionElement = document.querySelector("#question");
+  const questionAuthor = document.querySelector("#questionAuthor");
+  const questionDate = document.querySelector("#questionDate");
+  // const questionContainer = document.querySelector("#questionContainer")
 
   generateCategories();
 
@@ -49,11 +90,31 @@ onload = () => {
     categoriesList.forEach(category => {
       document.querySelector(`#${category.id}`).onclick = () => {
         navigateToQuestions();
+        loadQuestions(category);
         questionsBanner.src = `./assets/${category.src}`;
         questionsBanner.alt = `${category.title}`;
         questionsTitle.innerHTML = `${category.title}`
       }
     })
+  }
+
+  function loadQuestions(category) {
+    // let innerHTML = '';
+    questionsList.forEach(question => {
+      if (question.category === category.title) {
+        questionAuthor.innerHTML = question.author
+        questionElement.innerHTML = question.question
+        questionDate.innerHTML = question.date
+        // innerHTML += `<div class="card-header">
+        //              <p>${question.question}</p>
+        //              <div class="info">
+        //              <p class="date">${question.date}</p>
+        //              <p>${question.author}</p>
+        //              </div>
+        //              </div>`;
+      }
+    })
+    // questionContainer.innerHTML = innerHTML;d
   }
 
   function fillCategoriesList() {
