@@ -24,21 +24,24 @@ let questionsList = [
     question: "Como programar em Ruby?",
     author: "Kethellen",
     category: "Ruby",
-    date: "05/10/2021"
+    date: "05/10/2021",
+    answers: []
   },
   {
     id: "3",
     question: "Dicas para iniciantes em React Native...",
     author: "Diego",
     category: "React Native",
-    date: "12/09/2021"
+    date: "12/09/2021",
+    answers: []
   },
   {
     id: "4",
     question: "Como fazer uma boa responsividade para web e mobile?",
     author: "Luís",
     category: "Mobile",
-    date: "11/10/2021"
+    date: "11/10/2021",
+    answers: []
   }
 ];
 
