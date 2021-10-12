@@ -56,9 +56,16 @@
   <body>
     <header class="primary">
       <span class="header-title">PerguntAqui</span>
-      <span class="header-username">Gabriel</span>
+      <span id="headerUsername" class="header-username"></span>
     </header>
-    <div id="telaCategorias" class="telaCategoria">
+    <div id="telaLogin" class="telaLogin">
+      <div class="loginContainer">
+        <p>Digite seu nome</p>
+        <input id="loginInput">
+        <button id="loginButton">Entrar</button>
+      </div>
+    </div>
+    <div id="telaCategorias" class="telaCategoria hidden">
       <h1 class="category-title mt3">Selecione uma categoria</h1>
       <div id="category-group" class="category-group mt3"></div>
     </div>
@@ -72,9 +79,21 @@
         src="./assets//left-arrow.png"
         alt="Voltar"
       />
-      <div class="qustions-group">
+      <div class="questions-group">
         <h1 class="questions-title">Perguntas & Respostas</h1>
         <h1 id="questions-subtitle" class="questions-subtitle"></h1>
+        <div style="width: 100vw;">
+          <button id="addButton" class="add-button">Adicionar pergunta</button>
+        </div>
+        <div id="addQuestionCard" class="card-add card hidden">
+          <div class="card-write-answer">
+            <textarea id="addQuestionText" placeholder="Escreva sua pergunta..."></textarea>
+          </div>
+          <div class="card-icons">
+            <img id="addQuestion" src="./assets/checked.png" alt="Adicionar" />
+            <img id="cancelQuestion" src="./assets/remove.png" alt="Cancelar" />
+          </div>
+        </div>
         <div id="questionContainer"></div>
       </div>
     </div>
