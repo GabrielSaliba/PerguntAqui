@@ -2,7 +2,7 @@ navigator.serviceWorker.register('./app-sw.js');
 
 let categoriesList = [];
 let currentCategory = "";
-let questionsList = JSON.parse(localStorage.getItem("questionsList"));
+let questionsList = JSON.parse(localStorage.getItem("questionsList")) || [];
 let username = "";
 
 onload = () => {
